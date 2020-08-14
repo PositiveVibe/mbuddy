@@ -11,7 +11,7 @@ Using posenet with Expo.io to
 
 ## Installation
 
-    git clone git@github.com:PositiveVibe/meditationBuddy.git
+    git clone git@github.com:PositiveVibe/mBuddy.git
     yarn install
 
 ## Run
