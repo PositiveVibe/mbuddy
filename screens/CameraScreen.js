@@ -31,7 +31,6 @@ let sixSecondsData= [];
 let sixSecondsTimings = [];
 let mHistory = [];
 let soundHistory = [];
-let timeHistory = Date.now();
 let canPlaySound = true;
 let soundTiming = Date.now();
 let letsBegin = false;
@@ -413,11 +412,20 @@ export default class CameraScreen extends React.Component {
     )
   }
 
+  resetApp = () => {
+    const {isPersonCentered, givenName} = this.state;
+    this.setState({givenName:false});
+    finished = false;
+    meditationStartTime = Date.now();
+    letsBegin = false;
+    mHistory = [];
+    soundHistory = [];
+  }
 
   renderInitializing = () => {
-    console.log('lol')
+    console.log('lol');
 
-    this.loadModel()
+    this.loadModel();
     return (
       <View style={styles.viewWrapper}>
         <View style={styles.viewWrapper}>
@@ -545,6 +553,11 @@ export default class CameraScreen extends React.Component {
                         <Text style={styles.initializingText}>
                              Enjoy your day :) 
                         </Text>
+                        <TouchableOpacity
+                  onPress={this.resetApp}
+                  style={styles.button}>
+                    <Text style={styles.buttonText}>Start over</Text>
+                  </TouchableOpacity>  
             </View>
             )
           }
@@ -632,7 +645,7 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   initializingText: {
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: '200',
     top: '50%',
     left: '10%',
