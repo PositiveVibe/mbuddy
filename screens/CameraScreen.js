@@ -76,7 +76,7 @@ const getMoviesFromApiAsync = async (data) => {
                           && mHistory[mHistory.length-3][0]==1
                           && mHistory[mHistory.length-4][0]==0)
                           ){//&& canPlaySound){
-                          console.log('yes');//Not meditating
+                          console.log('not meditating long enough to play sound');//Not meditating
                           console.log(soundTiming - Date.now());
                           if ( soundTiming -Date.now() < -21000 && Date.now()-meditationStartTime > 95000 && Date.now() - meditationStartTime < 400000){
                             soundTiming = Date.now();
@@ -88,7 +88,7 @@ const getMoviesFromApiAsync = async (data) => {
                           
 
                       } else{
-                        console.log('no');//Meditating
+                        console.log('meditating, dont play sound');//Meditating
                       }
                     }
                     //;sixSecondsTimings.push([0,Date.now()-meditationStartTime]);}
@@ -420,6 +420,8 @@ export default class CameraScreen extends React.Component {
     letsBegin = false;
     mHistory = [];
     soundHistory = [];
+    areWeGivingFeedback = true;
+    this.setState({ loadingComplete: true });
   }
 
   renderInitializing = () => {
@@ -525,7 +527,7 @@ export default class CameraScreen extends React.Component {
                               Let's begin :)  
                         </Text>
                         {/*<TouchableOpacity
-                  onPress={sendDataToServer}
+                  onPress={playEndMeditation}
                   style={styles.button}>
                     <Text style={styles.buttonText}>Send Data</Text>
                   </TouchableOpacity>*/}
