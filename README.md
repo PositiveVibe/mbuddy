@@ -1,5 +1,5 @@
 # meditationBuddy
-Using posenet with Expo.io to 
+Using posenet with Expo.io to detect meditation from video. 
 
 ## Perquisites installations
 
