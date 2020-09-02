@@ -218,12 +218,16 @@ export const Dropdown = () => {
         onValueChange={(itemValue, itemIndex) => {setSelectedValue(itemValue);
             nameToSave=itemValue; }}
       >
+      <Picker.Item label="Test" value="test" />
+      <Picker.Item label="Natalie" value="Nat" />
+      <Picker.Item label="Weston" value="wes" />
+      <Picker.Item label="Milka" value="milka" />
         <Picker.Item label="Zach" value="zach" />
         <Picker.Item label="Cheryl" value="cheryl" />
         <Picker.Item label="Tiffany" value="tiff" />
         <Picker.Item label="Murielle" value="murl" />
         <Picker.Item label="Ashley" value="ashley" />
-        <Picker.Item label="Test" value="test" />
+        
       </Picker>
       </View>
       
